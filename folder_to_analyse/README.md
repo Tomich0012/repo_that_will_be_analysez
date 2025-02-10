@@ -1,53 +1,30 @@
-Voici un exemple de contenu pour un README.md dans le dossier "folder_to_analyse" :
+# Overview
+This folder contains data analysis files related to real estate listings. The primary focus is on processing and exploring the "listings.json" file, which contains information about various properties.
 
-# Dossier : folder_to_analyse
+# Files
+### 1. `listings.json`
+*   **Purpose:** This JSON file contains a collection of real estate listings with associated metadata.
+*   **Format:** Each listing is represented as an object with keys such as property address, price, location, and more.
+*   **Usage:** The `listings.json` file serves as the primary data source for analysis.
 
-Ce dossier contient les fichiers nécessaires à l'analyse et la compréhension des données contenues dans le fichier `listings.json`.
+# README Contents
 
-## Liste des fichiers
+## Table of Contents
+1. [Overview](#overview)
+2. [Files](#files)
+    1. [1. `listings.json`](#1-listingsjson)
+        *   **Purpose:** This JSON file contains a collection of real estate listings with associated metadata.
+        *   **Format:** Each listing is represented as an object with keys such as property address, price, location, and more.
+        *   **Usage:** The `listings.json` file serves as the primary data source for analysis.
 
-### listings.json
-Le fichier principal de ce dossier, qui contient les données à analyser.
+## Overview
+This folder contains a JSON file with real estate listings. It includes information about properties like addresses, prices, and locations.
 
-*   Format : JSON
-*   Contenu : Les données à analyser sous forme d'objets JSON.
-*   Description : Ce fichier est la source principale de données pour l'analyse. Il contient des informations sur différents listings (par exemple, leurs caractéristiques, leur localisation, etc.).
+## Files
 
-### README.md
-Ce fichier contient les instructions et les informations générales sur le dossier.
+### 1. `listings.json`
+*   This is a JSON file that stores information about properties.
+*   The file has various keys to describe each property, such as price, location, etc.
+*   The primary use of this file is for data analysis related to real estate listings.
 
-*   Format : Markdown
-*   Contenu : Les instructions à suivre pour utiliser ce dossier, ainsi que la description globale du projet.
-*   Description : Ce fichier fournit une vue d'ensemble de ce dossier et indique comment l'utiliser.
-
-### liste-de-fichiers.md
-Ce fichier contient une liste détaillée des fichiers du dossier, leur contenu et leur fonctionnalité.
-
-*   Format : Markdown
-*   Contenu : Une liste de tous les fichiers du dossier, avec une brève description de chaque fichier.
-*   Description : Ce fichier fournit une vue d'ensemble de tous les fichiers du dossier, facilitant ainsi la compréhension des différentes fonctionnalités.
-
-### fonctionnalite-globale.md
-Ce fichier contient une description détaillée de la fonctionnalité globale du dossier.
-
-*   Format : Markdown
-*   Contenu : Une description détaillée de ce que fait le dossier et comment il fonctionne.
-*   Description : Ce fichier fournit une vue d'ensemble de la fonctionnalité globale du dossier, montrant son objectif et ses différentes parties fonctionnelles.
-
-Notez qu'il est possible de créer un fichier README.md générique qui contient les informations générales sur le dossier. Il faudrait ensuite créer des sous-dossiers ou des fichiers spécifiques pour chaque fichier, avec leur propre fichier README.md contenant les informations détaillées sur chaque fichier.
-
-Par exemple :
-
-*   dossier/README.md
-    *   description du dossier
-    *   liste de fichiers
-    *   fonctionnalité globale
-
-*   listings.json/README.md
-    *   description des données contenues dans le fichier
-    *   format JSON
-    *   contenu du fichier
-
-*   liste-de-fichiers.md/README.md
-    *   liste détaillée de tous les fichiers du dossier
-    *   brève description de chaque fichier
+Let me know if you would like any further assistance.

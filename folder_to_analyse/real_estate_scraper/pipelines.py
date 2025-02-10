@@ -13,10 +13,11 @@ class RealEstateScraperPipeline:
     Elle permettrait de gérer des données avec un seul interface.
 
     Les méthodes suivantes sont disponibles dans cette classe :
-    - process_item(item, spider) : Traitement du item en question.
+        - process_item(item, spider) : Traitement du item en question.
 
     Les propriétés suivantes sont disponibles dans cette classe :
-    - None
+        - None
+
     """
 
     def __init__(self):

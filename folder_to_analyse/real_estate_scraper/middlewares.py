@@ -22,13 +22,12 @@ class RealEstateScraperSpiderMiddleware:
     def from_crawler(cls, crawler):
         """
         Methode utilisée par Scrapy pour créer la classe de middleware.
-        
+
         :param crawler: objet de Scrapy
         :type crawler: scrapy.crawler.Crawler
         :return: l'objet de la classe de middleware
         :rtype: RealEstateScraperSpiderMiddleware
         """
-        # This method is used by Scrapy to create your spiders.
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
@@ -43,9 +42,6 @@ class RealEstateScraperSpiderMiddleware:
         :type spider: scrapy.spiders.Spider
         :return: None ou exception
         """
-        # Called for each response that goes through the spider
-        # middleware and into the spider.
-        # Should return None or raise an exception.
         return None
 
     def process_spider_output(self, response, result, spider):
@@ -60,9 +56,6 @@ class RealEstateScraperSpiderMiddleware:
         :type spider: scrapy.spiders.Spider
         :return: une liste d'objets Request ou de données
         """
-        # Called with the results returned from the Spider, after
-        # it has processed the response.
-        # Must return an iterable of Request, or item objects.
         for i in result:
             yield i
 
@@ -77,8 +70,6 @@ class RealEstateScraperSpiderMiddleware:
         :param spider: l'objet Spider
         :type spider: scrapy.spiders.Spider
         """
-        # Called when a spider or process_spider_input() method
-        # (from other spider middleware) raises an exception.
         pass
 
     def spider_opened(self, response, spider):
@@ -90,8 +81,6 @@ class RealEstateScraperSpiderMiddleware:
         :param spider: l'objet Spider
         :type spider: scrapy.spiders.Spider
         """
-        # This hook function will be called for every response that is opened by
-        # the Spider.
         pass
 
 
@@ -101,39 +90,14 @@ class RealEstateScraperDownloaderMiddleware:
     le scraper de biens immobiliers.
     """
 
-    @classmethod
-    def from_crawler(cls, crawler):
+    def process_request(self, request):
         """
-        Methode utilisée par Scrapy pour créer la classe de middleware.
-        
-        :param crawler: objet de Scrapy
-        :type crawler: scrapy.crawler.Crawler
-        :return: l'objet de la classe de middleware
-        :rtype: RealEstateScraperDownloaderMiddleware
-        """
-        # This method is used by Scrapy to create your spiders.
-        s = cls()
-        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
-        return s
+        Appelle lorsque une requête est en cours de traitement.
 
-    def process_request(self, request, spider):
-        """
-        Appelle lorsque une requête est envoyée.
-
-        :param request: la requête à envoyer
-        :type request: scrapy.http.Request
-        :param spider: l'objet Spider
-        :type spider: scrapy.spiders.Spider
+        :param request: la requête à traiter
+        :type request: scrapy.Request
         :return: None ou objet Request
         """
-        # Called for each request that goes through the downloader
-        # middleware.
-        # Must either:
-        # - return None: continue processing this request
-        # - or return a Response object
-        # - or return a Request object
-        # - or raise IgnoreRequest: process_exception() methods of
-        #   installed downloader middleware will be called
         return None
 
     def process_response(self, request, response, spider):
@@ -141,16 +105,13 @@ class RealEstateScraperDownloaderMiddleware:
         Appelle lorsque une réponse est reçue.
 
         :param request: la requête envoyée
-        :type request: scrapy.http.Request
+        :type request: scrapy.Request
         :param response: la réponse reçue
-        :type response: scrapy.http.Response
+        :type response: scrapy.Response
         :param spider: l'objet Spider
-        :type spider: scrapy.spiders.Spider
+        :type spider: scrapy.Spiders.Spider
         :return: None ou objet Response
         """
-        # Called with the results returned from the Spider, after
-        # it has processed the response.
-        # Must return an iterable of Request, or item objects.
         pass
 
     def process_exception(self, request, exception, spider):
@@ -158,14 +119,12 @@ class RealEstateScraperDownloaderMiddleware:
         Appelle lorsque une exception est émise.
 
         :param request: la requête
-        :type request: scrapy.http.Request
+        :type request: scrapy.Request
         :param exception: l'exception émise
         :type exception: Exception
         :param spider: l'objet Spider
         :type spider: scrapy.spiders.Spider
         """
-        # Called when a spider or process_spider_input() method
-        # (from other spider middleware) raises an exception.
         pass
 
     def spider_opened(self, response, spider):
@@ -177,7 +136,5 @@ class RealEstateScraperDownloaderMiddleware:
         :param spider: l'objet Spider
         :type spider: scrapy.spiders.Spider
         """
-        # This hook function will be called for every response that is opened by
-        # the Spider.
         pass
 ```

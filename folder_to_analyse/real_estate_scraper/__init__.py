@@ -1,15 +1,17 @@
+```python
 def add_device(name: str) -> int:
     """
-    Ajoute un appareil avec son nom et son nombre d'appareils dans la liste.
+    Adds a device to the list with its name and updates the total count of devices.
 
     Args:
-        name (str): Le nom du appareil à ajouter.
+        name (str): The name of the device to be added.
 
     Returns:
-        int: Le nombre total d'appareils dans la liste.
+        int: The updated total number of devices in the list.
     
-    Note : Cette fonction est actuellement très simplifiée. Elle devrait être mise à jour pour incorporer les données des appareils et calculer le nombre total de appareils correctement.
+    Note:
+        This function is currently very simplified. It should be updated to incorporate device data and accurately calculate the total number of devices.
     """
-
     # Code de l'application
     return 1 + 2
+```

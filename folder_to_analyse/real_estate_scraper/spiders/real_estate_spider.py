@@ -1,6 +1,20 @@
 ```python
-import scrapy
+"""
+Spider pour extraire les annonces de logements à louer sur huurwoningen.nl.
 
+Cette classe implémente le modèle de spider standard de Scrapy, où la méthode parse est appelée pour traiter chaque page web.
+Elle suit un processus de pagination dynamique pour collecter toutes les annonces disponibles.
+
+Attributes:
+    name (str): Le nom du spider.
+    allowed_domains (list): La liste des domaines autorisés pour les requêtes HTTP.
+    start_urls (list): La liste des pages de départ à partir desquelles le spider démarrera.
+
+Methods:
+    parse(response): Traitement de chaque page web pour extraire les annonces et les données de pagination suivantes.
+"""
+
+import scrapy
 
 class RealEstateSpiderSpider(scrapy.Spider):
     """
