@@ -28,7 +28,7 @@ This folder contains the code for a real estate scraper, designed to extract dat
 
 ### `listings.json`
 
-*   A sample JSON file containing listings data. This file serves as a demonstration of the project's output and provides a reference point for other developers working with the scraper.
+*   A sample JSON file containing listings data. This file serves as a demonstration of the project's output and provides a reference point for 
 
 # Folder Structure
 ------------------
