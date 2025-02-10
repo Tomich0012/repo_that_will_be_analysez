@@ -79,39 +79,25 @@ class RealEstateScraperSpiderMiddleware:
         """
         # Called when a spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
-        # Should return either None or an iterable of Request or item objects.
         pass
 
-    def process_start_requests(self, start_requests, spider):
+    def spider_opened(self, response, spider):
         """
-        Appelle lorsque le Spider commence à traiter des requêtes.
+        Appelle lorsque le spider est ouvert.
 
-        :param start_requests: les requêtes à traiter
-        :type start_requests: list
-        :param spider: l'objet Spider
-        :type spider: scrapy.spiders.Spider
-        :return: une liste de requêtes
-        """
-        # Called with the start requests of the spider, and works
-        # similarly to the process_spider_output() method, except
-        # that it doesn’t have a response associated.
-        # Must return only requests (not items).
-        for r in start_requests:
-            yield r
-
-    def spider_opened(self, spider):
-        """
-        Appelle lorsque le Spider est ouvert.
-
+        :param response: la réponse
+        :type response: scrapy.http.Response
         :param spider: l'objet Spider
         :type spider: scrapy.spiders.Spider
         """
-        spider.logger.info("Spider opened: %s" % spider.name)
+        # This hook function will be called for every response that is opened by
+        # the Spider.
+        pass
 
 
 class RealEstateScraperDownloaderMiddleware:
     """
-    Cette classe de middleware s'assure que les requêtes sont traitées correctement pour
+    Cette classe de middleware s'assure que les données sont traitées correctement pour
     le scraper de biens immobiliers.
     """
 
@@ -181,3 +167,17 @@ class RealEstateScraperDownloaderMiddleware:
         # Called when a spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
         pass
+
+    def spider_opened(self, response, spider):
+        """
+        Appelle lorsque le spider est ouvert.
+
+        :param response: la réponse
+        :type response: scrapy.http.Response
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        """
+        # This hook function will be called for every response that is opened by
+        # the Spider.
+        pass
+```

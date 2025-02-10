@@ -8,4 +8,3 @@ référez-vous à la documentation de Scrapy.
 
 # Cette ligne est une erreur
 pass  # Enlever cette ligne
-```

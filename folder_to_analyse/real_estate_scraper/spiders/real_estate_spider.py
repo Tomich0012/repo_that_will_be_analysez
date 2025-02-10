@@ -28,6 +28,10 @@ class RealEstateSpiderSpider(scrapy.Spider):
 
         Args:
             response (Response): La réponse HTTP reçue depuis la page web.
+        Returns:
+            Response: L'URL de la page suivante à traiter.
+        Yields:
+            dict: Les données extraites de chaque annonce, contenant le nom et l'URL de l'annonce.
         """
         # Sélection des annonces sur la page
         listings = response.css("li.search-list__item--listing")
