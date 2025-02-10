@@ -12,7 +12,7 @@ BOT_NAME = "real_estate_scraper"
 SPIDER_MODULES = ["real_estate_scraper.spiders"]
 NEWSPIDER_MODULE = "real_estate_scraper.spiders"
 
-
+gfgffggfgfgffggfgffg
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "real_estate_scraper (+http://www.yourdomain.com)"
 
