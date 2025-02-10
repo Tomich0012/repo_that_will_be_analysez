@@ -1,7 +1,10 @@
-# Define here the models for your spider middleware
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+```python
+"""
+Module contenant les classes de middleware pour le scraper de biens immobiliers.
+
+Cette classe de middleware s'assure que les données sont traitées correctement et qu'il ne
+y a pas d'erreurs lors du traitement des requêtes et des réponses.
+"""
 
 from scrapy import signals
 
@@ -10,68 +13,135 @@ from itemadapter import is_item, ItemAdapter
 
 
 class RealEstateScraperSpiderMiddleware:
-    # Not all methods need to be defined. If a method is not defined,
-    # scrapy acts as if the spider middleware does not modify the
-    # passed objects.
+    """
+    Cette classe de middleware s'assure que les données sont traitées correctement pour
+    le scraper de biens immobiliers.
+    """
 
     @classmethod
     def from_crawler(cls, crawler):
+        """
+        Methode utilisée par Scrapy pour créer la classe de middleware.
+        
+        :param crawler: objet de Scrapy
+        :type crawler: scrapy.crawler.Crawler
+        :return: l'objet de la classe de middleware
+        :rtype: RealEstateScraperSpiderMiddleware
+        """
         # This method is used by Scrapy to create your spiders.
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
     def process_spider_input(self, response, spider):
+        """
+        Appelle lorsque le Spider reçoit une réponse à traiter.
+
+        :param response: la réponse à traiter
+        :type response: scrapy.http.Response
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        :return: None ou exception
+        """
         # Called for each response that goes through the spider
         # middleware and into the spider.
-
         # Should return None or raise an exception.
         return None
 
     def process_spider_output(self, response, result, spider):
+        """
+        Appelle lorsque le Spider a traité une réponse.
+
+        :param response: la réponse traitée
+        :type response: scrapy.http.Response
+        :param result: les données de sortie du Spider
+        :type result: list
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        :return: une liste d'objets Request ou de données
+        """
         # Called with the results returned from the Spider, after
         # it has processed the response.
-
         # Must return an iterable of Request, or item objects.
         for i in result:
             yield i
 
     def process_spider_exception(self, response, exception, spider):
+        """
+        Appelle lorsque le Spider ou un autre middleware a émis une exception.
+
+        :param response: la réponse
+        :type response: scrapy.http.Response
+        :param exception: l'exception émise
+        :type exception: Exception
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        """
         # Called when a spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
-
         # Should return either None or an iterable of Request or item objects.
         pass
 
     def process_start_requests(self, start_requests, spider):
+        """
+        Appelle lorsque le Spider commence à traiter des requêtes.
+
+        :param start_requests: les requêtes à traiter
+        :type start_requests: list
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        :return: une liste de requêtes
+        """
         # Called with the start requests of the spider, and works
         # similarly to the process_spider_output() method, except
         # that it doesn’t have a response associated.
-
         # Must return only requests (not items).
         for r in start_requests:
             yield r
 
     def spider_opened(self, spider):
+        """
+        Appelle lorsque le Spider est ouvert.
+
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        """
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
 class RealEstateScraperDownloaderMiddleware:
-    # Not all methods need to be defined. If a method is not defined,
-    # scrapy acts as if the downloader middleware does not modify the
-    # passed objects.
+    """
+    Cette classe de middleware s'assure que les requêtes sont traitées correctement pour
+    le scraper de biens immobiliers.
+    """
 
     @classmethod
     def from_crawler(cls, crawler):
+        """
+        Methode utilisée par Scrapy pour créer la classe de middleware.
+        
+        :param crawler: objet de Scrapy
+        :type crawler: scrapy.crawler.Crawler
+        :return: l'objet de la classe de middleware
+        :rtype: RealEstateScraperDownloaderMiddleware
+        """
         # This method is used by Scrapy to create your spiders.
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
     def process_request(self, request, spider):
+        """
+        Appelle lorsque une requête est envoyée.
+
+        :param request: la requête à envoyer
+        :type request: scrapy.http.Request
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        :return: None ou objet Request
+        """
         # Called for each request that goes through the downloader
         # middleware.
-
         # Must either:
         # - return None: continue processing this request
         # - or return a Response object
@@ -81,23 +151,33 @@ class RealEstateScraperDownloaderMiddleware:
         return None
 
     def process_response(self, request, response, spider):
-        # Called with the response returned from the downloader.
+        """
+        Appelle lorsque une réponse est reçue.
 
-        # Must either;
-        # - return a Response object
-        # - return a Request object
-        # - or raise IgnoreRequest
-        return response
-
-    def process_exception(self, request, exception, spider):
-        # Called when a download handler or a process_request()
-        # (from other downloader middleware) raises an exception.
-
-        # Must either:
-        # - return None: continue processing this exception
-        # - return a Response object: stops process_exception() chain
-        # - return a Request object: stops process_exception() chain
+        :param request: la requête envoyée
+        :type request: scrapy.http.Request
+        :param response: la réponse reçue
+        :type response: scrapy.http.Response
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        :return: None ou objet Response
+        """
+        # Called with the results returned from the Spider, after
+        # it has processed the response.
+        # Must return an iterable of Request, or item objects.
         pass
 
-    def spider_opened(self, spider):
-        spider.logger.info("Spider opened: %s" % spider.name)
+    def process_exception(self, request, exception, spider):
+        """
+        Appelle lorsque une exception est émise.
+
+        :param request: la requête
+        :type request: scrapy.http.Request
+        :param exception: l'exception émise
+        :type exception: Exception
+        :param spider: l'objet Spider
+        :type spider: scrapy.spiders.Spider
+        """
+        # Called when a spider or process_spider_input() method
+        # (from other spider middleware) raises an exception.
+        pass
