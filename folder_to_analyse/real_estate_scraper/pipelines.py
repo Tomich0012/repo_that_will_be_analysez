@@ -16,8 +16,14 @@ class RealEstateScraperPipeline:
 
 class RandomStuff:
     def do_random_stuff(self):
-        return random.choice(['apple', 'banana', 'cherry', 'date', 'elderberry'])
+        """    This function performs a random selection from a list of fruits and returns one
+    fruit as output.
 
+    Args: None
+
+    Returns: A string representing the randomly selected fruit. The possible outputs
+    are apple, banana, cherry, date, or elderberry."""
+        return random.choice(['apple', 'banana', 'cherry', 'date', 'elderberry'])
 def do_random_stuff():
     """Return a random fruit from a predefined list."""
     return random.choice(['apple', 'banana', 'cherry', 'date', 'elderberry'])
